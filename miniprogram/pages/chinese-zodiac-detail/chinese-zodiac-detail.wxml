@@ -1,0 +1,55 @@
+<view class="cz-detail page-container" wx:if="{{data}}">
+  <!-- Horizontal Sign Selector -->
+  <scroll-view class="sign-selector" scroll-x="true" enhanced show-scrollbar="{{false}}" scroll-into-view="{{currentKey}}">
+    <view class="sign-list">
+      <view
+        wx:for="{{allSigns}}" wx:key="key"
+        id="{{item.key}}"
+        class="sign-chip {{currentKey === item.key ? 'active' : ''}}"
+        bindtap="onSwitchSign"
+        data-key="{{item.key}}"
+      >{{item.emoji}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- Header -->
+  <view class="detail-header card">
+    <view class="header-icon">{{data.icon}}</view>
+    <view class="header-name">属{{data.name}}</view>
+    <view class="header-meta">
+      <view class="meta-tag">五行: {{data.wuxing}}</view>
+      <view class="meta-tag">属{{data.wuxing}}</view>
+    </view>
+    <view class="years-row" wx:if="{{data.years}}">
+      <view wx:for="{{data.years}}" wx:key="*this" class="year-tag">{{item}}年</view>
+    </view>
+  </view>
+
+  <!-- Personality -->
+  <view class="card">
+    <view class="section-title">性格特点</view>
+    <view class="trait-block">
+      <view class="trait-label green">优点</view>
+      <view class="trait-tags">
+        <view wx:for="{{data.strengths}}" wx:key="*this" class="trait-tag green-bg">{{item}}</view>
+      </view>
+    </view>
+    <view class="trait-block">
+      <view class="trait-label red">缺点</view>
+      <view class="trait-tags">
+        <view wx:for="{{data.weaknesses}}" wx:key="*this" class="trait-tag red-bg">{{item}}</view>
+      </view>
+    </view>
+    <view class="personality-text">{{data.personality}}</view>
+  </view>
+
+  <!-- Compatible -->
+  <view class="card" wx:if="{{compatibleList.length}}">
+    <view class="section-title">适配生肖</view>
+    <view class="compat-list">
+      <view wx:for="{{compatibleList}}" wx:key="key" class="compat-item">
+        {{item.icon}} 属{{item.name}}
+      </view>
+    </view>
+  </view>
+</view>

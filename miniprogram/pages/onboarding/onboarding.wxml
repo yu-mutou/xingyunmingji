@@ -1,0 +1,111 @@
+<view class="onboarding page-container">
+  <!-- Step 1: Profile Setup (new WeChat APIs) -->
+  <view class="step-card card">
+    <view class="step-label">Step 1</view>
+    <view class="step-title">个人头像与昵称</view>
+    <view class="profile-setup">
+      <!-- Avatar -->
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image class="avatar-preview" src="{{userInfo.avatarUrl || '/images/avatar.png'}}" mode="aspectFill" />
+        <view class="avatar-tip">点击设置头像</view>
+      </button>
+      <!-- Nickname -->
+      <view class="nickname-row">
+        <view class="nickname-label">昵称</view>
+        <input
+          class="nickname-input"
+          type="nickname"
+          placeholder="请输入或点击自动填充"
+          value="{{userInfo.nickname}}"
+          bindblur="onNicknameBlur"
+        />
+      </view>
+    </view>
+    <view wx:if="{{userInfo.nickname}}" class="check">✓ 已设置</view>
+  </view>
+
+  <!-- Step 2: Zodiac -->
+  <view class="step-card card">
+    <view class="step-label">Step 2</view>
+    <view class="step-title">选择你的星座</view>
+    <view class="picker-grid">
+      <view
+        wx:for="{{zodiacOptions}}" wx:key="key"
+        class="picker-item {{formData.zodiac === item.key ? 'selected' : ''}}"
+        data-key="zodiac" data-value="{{item.key}}"
+        bindtap="onPickSelect"
+      >{{item.emoji}} {{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- Step 3: Chinese Zodiac -->
+  <view class="step-card card">
+    <view class="step-label">Step 3</view>
+    <view class="step-title">选择你的生肖</view>
+    <view class="picker-grid">
+      <view
+        wx:for="{{chineseZodiacOptions}}" wx:key="key"
+        class="picker-item {{formData.chineseZodiac === item.key ? 'selected' : ''}}"
+        data-key="chineseZodiac" data-value="{{item.key}}"
+        bindtap="onPickSelect"
+      >{{item.emoji}} {{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- Step 4: Birth Year -->
+  <view class="step-card card">
+    <view class="step-label">Step 4</view>
+    <view class="step-title">出生年份</view>
+    <picker mode="date" fields="year" value="{{birthYearValue}}" bindchange="onYearChange">
+      <view class="year-picker {{formData.birthYear ? 'filled' : ''}}">
+        {{formData.birthYear || '点击选择出生年份'}}
+      </view>
+    </picker>
+  </view>
+
+  <!-- Step 5: Gender -->
+  <view class="step-card card">
+    <view class="step-label">Step 5</view>
+    <view class="step-title">性别（选填）</view>
+    <view class="gender-toggle">
+      <view
+        class="gender-option {{formData.gender === 'male' ? 'selected' : ''}}"
+        data-key="gender" data-value="male"
+        bindtap="onPickSelect"
+      >♂ 男</view>
+      <view
+        class="gender-option {{formData.gender === 'female' ? 'selected' : ''}}"
+        data-key="gender" data-value="female"
+        bindtap="onPickSelect"
+      >♀ 女</view>
+    </view>
+  </view>
+
+  <!-- Privacy Notice -->
+  <view class="privacy-notice">
+    点击"确认生成专属运势"即表示您已阅读并同意
+    <text class="privacy-link" bindtap="onPrivacyTap">《隐私政策》</text>
+    和
+    <text class="privacy-link" bindtap="onTermsTap">《用户服务协议》</text>
+  </view>
+
+  <!-- Submit -->
+  <button
+    class="submit-btn btn-primary"
+    disabled="{{!canSubmit}}"
+    bindtap="onSubmit"
+  >确认生成专属运势</button>
+
+  <!-- Policy Modal -->
+  <view class="modal-backdrop" wx:if="{{showPolicy}}" catchtap="onPolicyClose">
+    <view class="modal-body" catchtap="">
+      <view class="modal-header">
+        <view class="modal-title">{{policyTitle}}</view>
+        <view class="modal-close" bindtap="onPolicyClose">✕</view>
+      </view>
+      <scroll-view class="modal-scroll" scroll-y="true">
+        <view class="modal-content">{{policyContent}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

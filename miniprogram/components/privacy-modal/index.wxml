@@ -1,0 +1,67 @@
+<view class="privacy-overlay" wx:if="{{visible}}">
+  <view class="privacy-card">
+    <view class="privacy-icon">🛡️</view>
+    <view class="privacy-title">隐私保护指引</view>
+    <view class="privacy-subtitle">欢迎使用星运铭记！为保障您的权益，请阅读并同意以下内容：</view>
+
+    <scroll-view class="privacy-body" scroll-y="true">
+      <view class="privacy-section">
+        <view class="ps-title">一、我们收集的信息</view>
+        <view class="ps-text">
+          1. 微信头像和昵称：通过微信官方接口获取，仅用于在小程序内生成个性化运势卡片展示。
+          2. 个人设置信息：您主动填写的星座、生肖、出生年份、性别，用于生成专属运势内容。
+          3. 运势记录：每日运势评分、宜忌内容、幸运信息等，仅用于历史记录查看和收藏功能。
+        </view>
+      </view>
+      <view class="privacy-section">
+        <view class="ps-title">二、信息如何使用</view>
+        <view class="ps-text">
+          我们收集的信息仅用于为您提供运势参考服务，包括：生成每日运势、保存历史记录、生成分享海报。我们不会将您的信息用于任何其他目的，也不会主动提供给第三方。
+        </view>
+      </view>
+      <view class="privacy-section">
+        <view class="ps-title">三、信息如何保护</view>
+        <view class="ps-text">
+          您的数据存储在微信云开发平台，采用微信提供的安全机制进行加密和保护。您可以随时在个人中心清除缓存来删除本地数据。
+        </view>
+      </view>
+      <view class="privacy-section">
+        <view class="ps-title">四、重要提示</view>
+        <view class="ps-text">
+          本小程序所有运势内容（包括评分、评语、宜忌事项、幸运信息等）均为基于算法的内容生成结果，仅供日常娱乐和参考，不构成任何形式的实质性建议或承诺。
+        </view>
+      </view>
+      <view class="privacy-section">
+        <view class="ps-title">五、联系我们</view>
+        <view class="ps-text">
+          如有任何问题或建议，请通过小程序内「个人中心 → 意见反馈」与我们联系。
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="privacy-actions">
+      <button class="btn-disagree" bindtap="onDisagree">不同意</button>
+      <button class="btn-agree" bindtap="onAgree">同意并继续</button>
+    </view>
+
+    <view class="privacy-footer">
+      点击「同意并继续」即表示您已阅读并同意
+      <text class="link" bindtap="onViewFullPrivacy">《隐私政策》</text>
+      和
+      <text class="link" bindtap="onViewFullTerms">《用户服务协议》</text>
+    </view>
+  </view>
+
+  <!-- Full policy popup -->
+  <view class="full-policy-overlay" wx:if="{{showFullPolicy}}" catchtap="onCloseFullPolicy">
+    <view class="full-policy-card" catchtap="">
+      <view class="fph">
+        <view class="fph-title">{{fullPolicyTitle}}</view>
+        <view class="fph-close" bindtap="onCloseFullPolicy">✕</view>
+      </view>
+      <scroll-view class="fph-body" scroll-y="true">
+        <view class="fph-content">{{fullPolicyContent}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

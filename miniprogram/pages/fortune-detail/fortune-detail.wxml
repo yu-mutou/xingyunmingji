@@ -1,0 +1,41 @@
+<view class="fortune-detail page-container" wx:if="{{fortune}}">
+  <fortune-header
+    dateStr="{{displayDate}}"
+    lunarMonth="{{lunarMonth}}"
+    lunarDay="{{lunarDay}}"
+    zodiacName="{{zodiacName}}"
+    zodiacIcon="{{zodiacIcon}}"
+    chineseZodiacName="{{chineseZodiacName}}"
+    overallScore="{{fortune.overallScore}}"
+    level="{{fortune.level}}"
+    levelColor="{{fortune.levelColor}}"
+  />
+
+  <view class="dimensions-section">
+    <view class="section-title">运势评分</view>
+    <fortune-score-card
+      wx:for="{{dimensionList}}" wx:key="key"
+      icon="{{item.icon}}"
+      dimensionName="{{item.name}}"
+      score="{{item.score}}"
+      comment="{{item.comment}}"
+      barColor="{{item.barColor}}"
+    />
+  </view>
+
+  <dos-donts-section title="今日宜" items="{{fortune.dosList}}" accentColor="#52C41A" />
+  <dos-donts-section title="今日忌" items="{{fortune.dontsList}}" accentColor="#F53F3F" />
+  <lucky-info-grid
+    luckyColor="{{fortune.luckyInfo.color}}"
+    luckyNumber="{{fortune.luckyInfo.number}}"
+    luckyDirection="{{fortune.luckyInfo.direction}}"
+    luckyZodiac="{{fortune.luckyInfo.compatibleZodiac}}"
+  />
+
+  <!-- Bookmark Toggle -->
+  <view class="bookmark-bar">
+    <button class="bookmark-btn {{fortune.isBookmarked ? 'bookmarked' : ''}}" bindtap="onToggleBookmark">
+      {{fortune.isBookmarked ? '⭐ 已收藏' : '☆ 收藏'}}
+    </button>
+  </view>
+</view>

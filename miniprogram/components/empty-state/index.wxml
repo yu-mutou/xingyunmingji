@@ -1,0 +1,9 @@
+<view class="empty-state">
+  <view class="empty-icon">✨</view>
+  <view class="empty-message">{{message}}</view>
+  <button
+    wx:if="{{buttonText}}"
+    class="empty-btn btn-primary"
+    bindtap="onActionTap"
+  >{{buttonText}}</button>
+</view>

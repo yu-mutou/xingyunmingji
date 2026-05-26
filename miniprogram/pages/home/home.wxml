@@ -1,0 +1,111 @@
+<view class="home page-container">
+  <loading-overlay visible="{{loading}}" text="运势加载中..." />
+
+  <!-- Fortune Header -->
+  <fortune-header
+    wx:if="{{fortune}}"
+    dateStr="{{displayDate}}"
+    lunarMonth="{{lunarMonth}}"
+    lunarDay="{{lunarDay}}"
+    zodiacName="{{zodiacName}}"
+    zodiacIcon="{{zodiacIcon}}"
+    chineseZodiacName="{{chineseZodiacName}}"
+    overallScore="{{fortune.overallScore}}"
+    level="{{fortune.level}}"
+    levelColor="{{fortune.levelColor}}"
+  />
+
+  <!-- Check-in Card -->
+  <view wx:if="{{fortune}}" class="card checkin-card">
+    <view class="checkin-info">
+      <view class="checkin-title">🔥 运势打卡</view>
+      <view class="checkin-streak">
+        已连续打卡 <text class="streak-num">{{checkinStreak}}</text> 天
+      </view>
+    </view>
+    <view class="checkin-dots">
+      <view
+        wx:for="{{checkinWeek}}" wx:key="index"
+        class="checkin-dot {{item.checked ? 'checked' : ''}}"
+      >
+        <text wx:if="{{item.checked}}">✓</text>
+        <text wx:else>{{item.day}}</text>
+      </view>
+    </view>
+    <button
+      class="checkin-btn {{checkedToday ? 'done' : ''}}"
+      bindtap="onCheckin"
+      disabled="{{checkedToday}}"
+    >{{checkedToday ? '今日已打卡 ✓' : '今日打卡 +1'}}</button>
+  </view>
+
+  <!-- Six Dimension Score Cards -->
+  <view wx:if="{{fortune}}" class="dimensions-section">
+    <view class="section-title">运势评分</view>
+    <fortune-score-card
+      wx:for="{{dimensionList}}" wx:key="key"
+      icon="{{item.icon}}"
+      dimensionName="{{item.name}}"
+      score="{{item.score}}"
+      comment="{{item.comment}}"
+      barColor="{{item.barColor}}"
+    />
+  </view>
+
+  <!-- Dos & Don'ts -->
+  <dos-donts-section
+    wx:if="{{fortune && fortune.dosList}}"
+    title="今日宜"
+    items="{{fortune.dosList}}"
+    accentColor="#52C41A"
+  />
+  <dos-donts-section
+    wx:if="{{fortune && fortune.dontsList}}"
+    title="今日忌"
+    items="{{fortune.dontsList}}"
+    accentColor="#F53F3F"
+  />
+
+  <!-- Lucky Info -->
+  <lucky-info-grid
+    wx:if="{{fortune && fortune.luckyInfo}}"
+    luckyColor="{{fortune.luckyInfo.color}}"
+    luckyNumber="{{fortune.luckyInfo.number}}"
+    luckyDirection="{{fortune.luckyInfo.direction}}"
+    luckyZodiac="{{fortune.luckyInfo.compatibleZodiac}}"
+  />
+
+  <!-- Lucky Item -->
+  <view wx:if="{{luckyItem}}" class="card lucky-item-card">
+    <view class="lucky-item-icon">{{luckyItem.emoji}}</view>
+    <view class="lucky-item-content">
+      <view class="lucky-item-name">今日幸运物 · {{luckyItem.name}}</view>
+      <view class="lucky-item-tip">{{luckyItem.tip}}</view>
+    </view>
+  </view>
+
+  <!-- Daily Quote -->
+  <view wx:if="{{dailyQuote}}" class="card quote-card" style="border-left: 6rpx solid {{fortune.levelColor}};">
+    <view class="quote-text">"{{dailyQuote}}"</view>
+  </view>
+
+  <!-- Bottom Action Bar -->
+  <view class="bottom-bar" wx:if="{{fortune}}">
+    <button class="btn-outline" bindtap="onRefreshTap">刷新运势</button>
+    <button class="btn-primary" bindtap="onPosterTap">生成海报</button>
+  </view>
+
+  <!-- Modals -->
+  <refresh-modal
+    visible="{{showRefreshModal}}"
+    canRefresh="{{canRefresh}}"
+    bind:onConfirm="onRefreshConfirm"
+    bind:onCancel="onRefreshCancel"
+  />
+  <poster-modal
+    visible="{{showPosterModal}}"
+    fortuneData="{{fortune}}"
+    userProfile="{{userProfile}}"
+    bind:onClose="onPosterClose"
+  />
+</view>

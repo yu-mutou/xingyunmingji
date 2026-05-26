@@ -1,0 +1,32 @@
+.fortune-detail {
+  padding-bottom: 120rpx;
+}
+
+.dimensions-section {
+  margin-bottom: 20rpx;
+}
+
+.bookmark-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx 30rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.bookmark-btn {
+  width: 100%;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  border-radius: 48rpx;
+  background: #f5f5f5;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.bookmark-btn.bookmarked {
+  background: rgba(255, 215, 0, 0.12);
+  color: #e6a800;
+}

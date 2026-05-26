@@ -1,0 +1,91 @@
+<view class="discover page-container">
+  <!-- Section 1: Zodiac Encyclopedia -->
+  <view class="section card">
+    <view class="section-header">
+      <view class="section-title">♈ 星座百科</view>
+      <view class="section-more" bindtap="onViewAllZodiac">查看全部 →</view>
+    </view>
+    <scroll-view class="zodiac-scroll" scroll-x="true" enhanced show-scrollbar="{{false}}">
+      <view class="zodiac-list">
+        <view
+          wx:for="{{zodiacList}}" wx:key="key"
+          class="zodiac-item {{userZodiac === item.key ? 'is-me' : ''}}"
+          bindtap="onTapZodiac"
+          data-key="{{item.key}}"
+        >
+          <view class="zodiac-circle {{userZodiac === item.key ? 'active' : ''}}">
+            <view class="zodiac-emoji">{{item.emoji}}</view>
+          </view>
+          <view class="zodiac-name">{{item.name}}</view>
+          <view class="zodiac-date">{{item.dateRange}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- Section 2: Chinese Zodiac Encyclopedia -->
+  <view class="section card">
+    <view class="section-header">
+      <view class="section-title">🐲 生肖解析</view>
+      <view class="section-more" bindtap="onViewAllChineseZodiac">查看全部 →</view>
+    </view>
+    <scroll-view class="zodiac-scroll" scroll-x="true" enhanced show-scrollbar="{{false}}">
+      <view class="zodiac-list">
+        <view
+          wx:for="{{chineseZodiacList}}" wx:key="key"
+          class="zodiac-item {{userChineseZodiac === item.key ? 'is-me' : ''}}"
+          bindtap="onTapChineseZodiac"
+          data-key="{{item.key}}"
+        >
+          <view class="zodiac-circle {{userChineseZodiac === item.key ? 'active' : ''}}">
+            <view class="zodiac-emoji">{{item.emoji}}</view>
+          </view>
+          <view class="zodiac-name">属{{item.name}}</view>
+          <view class="zodiac-date">{{item.wuxing}}象</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- Section 3: Compatibility Matching -->
+  <view class="section card" bindtap="onNavCompatibility">
+    <view class="compat-row">
+      <view class="compat-left">
+        <view class="compat-icon">💞</view>
+        <view class="compat-info">
+          <view class="compat-title">趣味配对</view>
+          <view class="compat-desc">星座+生肖配对，查看契合指数</view>
+        </view>
+      </view>
+      <view class="compat-btn">开始配对</view>
+    </view>
+  </view>
+
+  <!-- Section 4: Shake Divination -->
+  <view class="section card shake-card" bindtap="onShakeTap">
+    <view class="shake-prompt" wx:if="{{!shakeResult}}">
+      <view class="shake-icon">🎲</view>
+      <view class="shake-label">摇一摇好运预言</view>
+      <view class="shake-hint">点击或摇动手机，看看今日小预言</view>
+    </view>
+    <view class="shake-result" wx:if="{{shakeResult}}">
+      <view class="result-emoji">{{shakeResult.emoji}}</view>
+      <view class="result-title">{{shakeResult.title}}</view>
+      <view class="result-text">{{shakeResult.text}}</view>
+      <view class="result-retry" catchtap="onShakeTap">再摇一次</view>
+    </view>
+  </view>
+
+  <!-- Section 5: Daily Tips -->
+  <view class="section card">
+    <view class="section-header">
+      <view class="section-title">💡 运势小贴士</view>
+    </view>
+    <view class="tips-list">
+      <view wx:for="{{dailyTips}}" wx:key="index" class="tip-item">
+        <view class="tip-dot"></view>
+        <view class="tip-text">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

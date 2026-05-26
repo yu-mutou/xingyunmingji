@@ -1,0 +1,150 @@
+.home {
+  padding-bottom: 140rpx;
+}
+
+.dimensions-section {
+  margin-bottom: 8rpx;
+}
+
+/* ===== Check-in Card ===== */
+.checkin-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.checkin-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkin-title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  letter-spacing: 2rpx;
+}
+
+.checkin-streak {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.streak-num {
+  color: var(--primary);
+  font-size: 34rpx;
+}
+
+.checkin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 18rpx;
+}
+
+.checkin-dot {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: #F5F2EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: var(--text-light);
+  border: 1rpx solid var(--border);
+}
+
+.checkin-dot.checked {
+  background: var(--primary);
+  color: #fff;
+  font-size: 24rpx;
+  border-color: var(--primary);
+}
+
+.checkin-btn {
+  width: 100%;
+  font-size: 28rpx;
+  padding: 18rpx 0;
+  border-radius: 48rpx;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  letter-spacing: 3rpx;
+}
+
+.checkin-btn.done {
+  background: #E8E5DF;
+  color: var(--text-light);
+}
+
+/* ===== Lucky Item Card ===== */
+.lucky-item-card {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.lucky-item-icon {
+  font-size: 52rpx;
+  width: 72rpx;
+  text-align: center;
+}
+
+.lucky-item-name {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+  letter-spacing: 2rpx;
+}
+
+.lucky-item-tip {
+  font-size: 26rpx;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ===== Daily Quote ===== */
+.quote-card {
+  border: 1rpx solid var(--border);
+  border-radius: 20rpx;
+  background: var(--card-bg);
+  padding: 28rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.quote-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+/* ===== Bottom Bar ===== */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 16rpx 36rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 253, 249, 0.94);
+  border-top: 1rpx solid var(--border);
+  z-index: 100;
+}
+
+.bottom-bar .btn-outline,
+.bottom-bar .btn-primary {
+  flex: 1;
+  font-size: 30rpx;
+  padding: 22rpx 0;
+  border-radius: 48rpx;
+  text-align: center;
+}

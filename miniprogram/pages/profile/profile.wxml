@@ -1,0 +1,66 @@
+<view class="profile">
+  <!-- User Info Header -->
+  <view class="profile-header">
+    <image class="profile-avatar" src="{{userInfo.avatarUrl || '/images/avatar.png'}}" mode="aspectFill" />
+    <view class="profile-nickname">{{userInfo.nickname || '微信用户'}}</view>
+    <view class="profile-tags">
+      <view class="tag">{{zodiacName}}</view>
+      <view class="tag">{{chineseZodiacName}}</view>
+    </view>
+    <view class="edit-link" bindtap="onEditProfile">编辑资料 →</view>
+  </view>
+
+  <!-- Menu List -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="onNavHistory">
+      <view class="menu-icon">📋</view>
+      <view class="menu-label">历史运势记录</view>
+      <view class="menu-arrow">→</view>
+    </view>
+    <view class="menu-item" bindtap="onNavFavorites">
+      <view class="menu-icon">⭐</view>
+      <view class="menu-label">我的收藏</view>
+      <view class="menu-arrow">→</view>
+    </view>
+
+    <!-- Weekly Report Card -->
+    <view class="menu-item weekly-report" wx:if="{{weekReport}}" bindtap="onNavHistory">
+      <view class="report-icon">📊</view>
+      <view class="report-content">
+        <view class="report-label">本周运势概况</view>
+        <view class="report-stats">
+          <text class="stat avg">均 {{weekReport.avg}}分</text>
+          <text class="stat high">高 {{weekReport.max}}分</text>
+          <text class="stat low">低 {{weekReport.min}}分</text>
+        </view>
+        <view class="report-trend">
+          <text wx:for="{{weekReport.trend}}" wx:key="index" class="trend-item" style="color: {{item.color}};">{{item.icon}}</text>
+        </view>
+      </view>
+      <view class="menu-arrow">→</view>
+    </view>
+
+    <view class="menu-item" bindtap="onNavFeedback">
+      <view class="menu-icon">💬</view>
+      <view class="menu-label">意见反馈</view>
+      <view class="menu-arrow">→</view>
+    </view>
+    <view class="menu-item" bindtap="onClearCache">
+      <view class="menu-icon">🗑</view>
+      <view class="menu-label">清除缓存</view>
+      <view class="menu-arrow">→</view>
+    </view>
+    <view class="menu-item" bindtap="onNavAbout">
+      <view class="menu-icon">ℹ️</view>
+      <view class="menu-label">关于我们</view>
+      <view class="menu-arrow">→</view>
+    </view>
+  </view>
+
+  <!-- Footer Links -->
+  <view class="footer-links">
+    <view class="link" bindtap="onNavPrivacy">隐私政策</view>
+    <view class="link-divider">|</view>
+    <view class="link" bindtap="onNavTerms">用户服务协议</view>
+  </view>
+</view>

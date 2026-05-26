@@ -1,0 +1,42 @@
+<view class="history page-container">
+  <!-- Filter Tabs -->
+  <view class="filter-tabs">
+    <view
+      class="filter-tab {{filter === 'all' ? 'active' : ''}}"
+      bindtap="onFilterTap"
+      data-filter="all"
+    >全部</view>
+    <view
+      class="filter-tab {{filter === 'bookmarked' ? 'active' : ''}}"
+      bindtap="onFilterTap"
+      data-filter="bookmarked"
+    >已收藏 ⭐</view>
+  </view>
+
+  <!-- Fortune List -->
+  <view wx:if="{{list.length}}" class="fortune-list">
+    <view
+      wx:for="{{list}}" wx:key="_id"
+      class="card fortune-card"
+      bindtap="onTapItem"
+      data-id="{{item._id}}"
+    >
+      <view class="fc-left">
+        <view class="fc-date">{{item.date}}</view>
+        <view class="fc-snippet">{{item.dimensions.career.comment}}</view>
+      </view>
+      <view class="fc-right">
+        <view class="fc-score" style="color: {{item.levelColor}};">{{item.overallScore}}</view>
+        <view class="fc-level" style="color: {{item.levelColor}};">{{item.level}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Empty State -->
+  <empty-state
+    wx:else
+    message="{{filter === 'bookmarked' ? '暂无收藏内容' : '暂无运势记录，快来查看今日运势吧'}}"
+    buttonText="{{filter === 'bookmarked' ? '' : '前往首页'}}"
+    bind:onAction="onGoHome"
+  />
+</view>

@@ -1,0 +1,26 @@
+<view class="lucky-grid">
+  <view class="section-title">今日幸运信息</view>
+  <view class="grid">
+    <view class="grid-item">
+      <view class="item-header">
+        <view class="color-swatch" style="background: {{luckyColor.hex}};"></view>
+      </view>
+      <view class="item-label">幸运色</view>
+      <view class="item-value">{{luckyColor.name}}</view>
+    </view>
+    <view class="grid-item">
+      <view class="item-header number-circle">{{luckyNumber}}</view>
+      <view class="item-label">幸运数字</view>
+    </view>
+    <view class="grid-item">
+      <view class="item-header direction-icon">🧭</view>
+      <view class="item-label">幸运方位</view>
+      <view class="item-value">{{luckyDirection}}</view>
+    </view>
+    <view class="grid-item">
+      <view class="item-header zodiac-icon">⭐</view>
+      <view class="item-label">贵人星座</view>
+      <view class="item-value">{{luckyZodiac}}</view>
+    </view>
+  </view>
+</view>

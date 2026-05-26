@@ -1,0 +1,60 @@
+.filter-tabs {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.filter-tab {
+  padding: 12rpx 32rpx;
+  border-radius: 48rpx;
+  font-size: 26rpx;
+  background: #fff;
+  color: var(--text-secondary);
+}
+
+.filter-tab.active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 500;
+}
+
+.fortune-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+}
+
+.fc-left {
+  flex: 1;
+}
+
+.fc-date {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+}
+
+.fc-snippet {
+  font-size: 24rpx;
+  color: var(--text-light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fc-right {
+  text-align: right;
+  margin-left: 16rpx;
+}
+
+.fc-score {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.fc-level {
+  font-size: 22rpx;
+  font-weight: 500;
+}

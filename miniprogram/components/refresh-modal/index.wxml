@@ -1,0 +1,17 @@
+<view class="modal-backdrop" wx:if="{{visible}}" bindtap="onCancelTap">
+  <view class="modal-body" catchtap="">
+    <view class="modal-title">刷新今日运势</view>
+    <view class="modal-desc">
+      每日仅可免费刷新 <text class="highlight">1</text> 次
+    </view>
+    <view class="modal-remaining">
+      今日剩余刷新次数：<text class="count">{{canRefresh ? '1/1' : '0/1'}}</text>
+    </view>
+    <view class="modal-actions">
+      <button class="btn-cancel" bindtap="onCancelTap">取消</button>
+      <button class="btn-confirm" bindtap="onConfirmTap" disabled="{{!canRefresh}}">
+        确认刷新
+      </button>
+    </view>
+  </view>
+</view>

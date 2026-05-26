@@ -1,0 +1,65 @@
+.dos-donts-section {
+  margin-bottom: 28rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  margin-bottom: 18rpx;
+}
+
+.accent-line {
+  width: 4rpx;
+  height: 28rpx;
+  border-radius: 2rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: var(--text-primary);
+  letter-spacing: 3rpx;
+}
+
+.item-list {
+  background: var(--card-bg);
+  border-radius: 20rpx;
+  border: 1rpx solid var(--border);
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  padding: 18rpx 24rpx;
+  gap: 16rpx;
+}
+
+.item:not(:last-child) {
+  border-bottom: 1rpx solid #F5F2EC;
+}
+
+.item-icon {
+  font-size: 28rpx;
+  width: 40rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.item-category {
+  font-size: 22rpx;
+  color: var(--text-light);
+  letter-spacing: 1rpx;
+}
+
+.item-text {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  line-height: 1.6;
+}

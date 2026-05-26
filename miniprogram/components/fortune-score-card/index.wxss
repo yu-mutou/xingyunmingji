@@ -1,0 +1,56 @@
+.score-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.dim-icon {
+  font-size: 36rpx;
+  width: 48rpx;
+  text-align: center;
+}
+
+.dim-name {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  letter-spacing: 2rpx;
+}
+
+.card-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.score-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  letter-spacing: -1rpx;
+}
+
+.score-bar-bg {
+  width: 80rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background: #EFEDE8;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 3rpx;
+}
+
+.score-comment {
+  font-size: 26rpx;
+  color: var(--text-light);
+  padding: 0 0 16rpx 64rpx;
+  line-height: 1.6;
+}

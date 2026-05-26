@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "每日运势",
+  "navigationBarBackgroundColor": "#FFFDF9",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "fortune-header": "/components/fortune-header/index",
+    "fortune-score-card": "/components/fortune-score-card/index",
+    "dos-donts-section": "/components/dos-donts-section/index",
+    "lucky-info-grid": "/components/lucky-info-grid/index",
+    "empty-state": "/components/empty-state/index",
+    "loading-overlay": "/components/loading-overlay/index",
+    "refresh-modal": "/components/refresh-modal/index",
+    "poster-modal": "/components/poster-modal/index"
+  }
+}

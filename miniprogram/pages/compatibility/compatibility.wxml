@@ -1,0 +1,48 @@
+<view class="compatibility page-container">
+  <!-- Mode Toggle -->
+  <view class="mode-toggle">
+    <view class="mode-option {{mode === 'zodiac' ? 'active' : ''}}" bindtap="onModeSwitch" data-mode="zodiac">星座配对</view>
+    <view class="mode-option {{mode === 'chineseZodiac' ? 'active' : ''}}" bindtap="onModeSwitch" data-mode="chineseZodiac">生肖配对</view>
+  </view>
+
+  <!-- Pair Selectors -->
+  <view class="pair-area">
+    <view class="pair-item" bindtap="onSelect1">
+      <view class="pair-emoji">{{item1.emoji || '?'}}</view>
+      <view class="pair-name">{{item1.name || '请选择'}}</view>
+    </view>
+    <view class="pair-heart">💞</view>
+    <view class="pair-item" bindtap="onSelect2">
+      <view class="pair-emoji">{{item2.emoji || '?'}}</view>
+      <view class="pair-name">{{item2.name || '请选择'}}</view>
+    </view>
+  </view>
+
+  <button class="match-btn btn-primary" bindtap="onMatch" disabled="{{!canMatch}}">查看配对</button>
+
+  <!-- Selector Popup -->
+  <view class="picker-overlay" wx:if="{{showPicker}}" catchtap="onPickerClose">
+    <view class="picker-body" catchtap="">
+      <view class="picker-header">
+        <view>选择{{mode === 'zodiac' ? '星座' : '生肖'}}</view>
+        <view class="picker-close" bindtap="onPickerClose">✕</view>
+      </view>
+      <view class="picker-grid">
+        <view
+          wx:for="{{pickerOptions}}" wx:key="key"
+          class="picker-item"
+          bindtap="onPickItem"
+          data-key="{{item.key}}" data-name="{{item.name}}" data-icon="{{item.emoji}}"
+        >{{item.emoji}} {{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Result -->
+  <view class="result card" wx:if="{{result}}">
+    <view class="result-score" style="color: {{result.levelColor}};">{{result.score}}</view>
+    <view class="result-level" style="color: {{result.levelColor}};">{{result.level}}</view>
+    <view class="result-desc">{{result.description}}</view>
+    <view class="result-advice">💡 {{result.advice}}</view>
+  </view>
+</view>

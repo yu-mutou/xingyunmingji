@@ -1,0 +1,100 @@
+<view class="poster-backdrop" wx:if="{{visible}}" catchtap="onCloseTap">
+  <view class="poster-body" catchtap="">
+    <view class="poster-header">
+      <view class="poster-title">运势海报</view>
+      <view class="poster-close" bindtap="onCloseTap">✕</view>
+    </view>
+
+    <scroll-view class="poster-scroll" scroll-y="true" enhanced show-scrollbar="{{false}}">
+      <!-- Canvas success: show generated image -->
+      <image
+        wx:if="{{posterUrl}}"
+        src="{{posterUrl}}"
+        mode="widthFix"
+        class="poster-image"
+        show-menu-by-longpress="{{true}}"
+      />
+      <!-- Canvas not yet done: show loading -->
+      <view wx:elif="{{!generateFailed}}" class="poster-loading">
+        <view class="loading-spinner">
+          <view class="spinner-ring"></view>
+        </view>
+        <view>生成中...</view>
+      </view>
+      <!-- Canvas failed: show styled fallback poster -->
+      <view wx:else class="poster-card">
+        <!-- Top: date & user -->
+        <view class="pc-top">
+          <view class="pc-top-left">
+            <view class="pc-avatar" wx:if="{{userProfile.avatarUrl}}">
+              <image src="{{userProfile.avatarUrl}}" mode="aspectFill" />
+            </view>
+            <view class="pc-nickname">{{userProfile.nickname || '星运用户'}}</view>
+          </view>
+          <view class="pc-badge" style="background: {{fortuneData.levelColor}};">
+            {{fortuneData.level}}
+          </view>
+        </view>
+        <view class="pc-date">{{fortuneData.date}}</view>
+
+        <!-- Main score -->
+        <view class="pc-score-area">
+          <view class="pc-score-ring" style="border-color: {{fortuneData.levelColor}};">
+            <view class="pc-score-num" style="color: {{fortuneData.levelColor}};">{{fortuneData.overallScore}}</view>
+          </view>
+          <view class="pc-score-label">综合运势</view>
+        </view>
+
+        <!-- Six dimensions -->
+        <view class="pc-dims">
+          <view class="pc-dim-row" wx:for="{{dimPreview}}" wx:key="key">
+            <view class="pc-dim-icon">{{item.icon}}</view>
+            <view class="pc-dim-mid">
+              <view class="pc-dim-name">{{item.name}}</view>
+              <view class="pc-dim-bar-bg">
+                <view class="pc-dim-bar-fill" style="width: {{item.score}}%; background: {{item.barColor}};"></view>
+              </view>
+            </view>
+            <view class="pc-dim-score" style="color: {{item.barColor}};">{{item.score}}</view>
+          </view>
+        </view>
+
+        <!-- Lucky info -->
+        <view class="pc-lucky" wx:if="{{fortuneData.luckyInfo}}">
+          <view class="pc-lucky-item">
+            <view class="pc-lucky-dot" style="background: {{fortuneData.luckyInfo.color.hex}};"></view>
+            <view class="pc-lucky-text">幸运色 · {{fortuneData.luckyInfo.color.name}}</view>
+          </view>
+          <view class="pc-lucky-item">
+            <view class="pc-lucky-num">{{fortuneData.luckyInfo.number}}</view>
+            <view class="pc-lucky-text">幸运数字</view>
+          </view>
+          <view class="pc-lucky-item">
+            <view class="pc-lucky-dir">🧭</view>
+            <view class="pc-lucky-text">方位 · {{fortuneData.luckyInfo.direction}}</view>
+          </view>
+        </view>
+
+        <!-- Footer -->
+        <view class="pc-footer">
+          <view class="pc-footer-text">— 星运铭记 · 每日好运相伴 —</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="poster-actions">
+      <button class="btn-save" bindtap="onSaveTap" disabled="{{!posterUrl}}">
+        {{posterUrl ? '保存到相册' : '真机可用'}}
+      </button>
+      <button class="btn-share" open-type="share">分享给好友</button>
+    </view>
+  </view>
+
+  <!-- Hidden canvas for image generation -->
+  <canvas
+    type="2d"
+    id="posterCanvas"
+    class="poster-canvas"
+    style="width: 375px; height: 560px;"
+  ></canvas>
+</view>

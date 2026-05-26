@@ -1,0 +1,13 @@
+<view class="score-card">
+  <view class="card-left">
+    <view class="dim-icon">{{icon}}</view>
+    <view class="dim-name">{{dimensionName}}</view>
+  </view>
+  <view class="card-right">
+    <view class="score-value" style="color: {{barColor}};">{{score}}</view>
+    <view class="score-bar-bg">
+      <view class="score-bar-fill" style="width: {{score}}%; background: {{barColor}};"></view>
+    </view>
+  </view>
+</view>
+<view class="score-comment">{{comment}}</view>

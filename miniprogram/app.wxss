@@ -1,0 +1,88 @@
+/**app.wxss — 简约手绘风 **/
+
+page {
+  --primary: #7B61FF;
+  --secondary: #4A80F0;
+  --bg: #FFFDF9;
+  --gold: #D4A017;
+  --green: #4A9E5C;
+  --gray: #8C8C8C;
+  --red: #E05555;
+  --text-primary: #2D2D2D;
+  --text-secondary: #7A7A7A;
+  --text-light: #B0B0B0;
+  --card-bg: #FFFFFF;
+  --border: #EBE8E2;
+  --white: #FFFFFF;
+
+  background: var(--bg);
+  font-family: 'KaiTi', 'STKaiti', '楷体', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 30rpx;
+  color: var(--text-primary);
+  line-height: 1.8;
+  letter-spacing: 1rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+button {
+  background: initial;
+  font-family: inherit;
+  letter-spacing: 2rpx;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button::after {
+  border: none;
+}
+
+/* ===== Layout ===== */
+.page-container {
+  padding: 32rpx 36rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ===== Card ===== */
+.card {
+  border-radius: 20rpx;
+  background: var(--card-bg);
+  border: 1rpx solid var(--border);
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-sizing: border-box;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+  padding: 22rpx 48rpx;
+  border: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5rpx solid var(--primary);
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+  padding: 22rpx 48rpx;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  font-size: 34rpx;
+  color: var(--text-primary);
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 4rpx solid var(--primary);
+  letter-spacing: 2rpx;
+}

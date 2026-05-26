@@ -1,0 +1,19 @@
+<view class="fortune-header">
+  <view class="header-top">
+    <view class="date-block">
+      <view class="lunar-date">农历{{lunarMonth}}月{{lunarDay}}</view>
+      <view class="solar-date">{{dateStr}}</view>
+    </view>
+    <view class="zodiac-tags">
+      <view class="tag">{{zodiacIcon}} {{zodiacName}}</view>
+      <view class="tag">{{chineseZodiacName}}</view>
+    </view>
+  </view>
+
+  <view class="score-block">
+    <view class="score-circle" style="border-color: {{levelColor}};">
+      <view class="score-number" style="color: {{levelColor}};">{{overallScore}}</view>
+    </view>
+    <view class="level-badge" style="background: {{levelColor}}; box-shadow: 0 2rpx 8rpx {{levelColor}}44;">{{level}}</view>
+  </view>
+</view>

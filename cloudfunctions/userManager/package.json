@@ -1,0 +1,9 @@
+{
+  "name": "userManager",
+  "version": "1.0.0",
+  "description": "User profile management",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.4.0"
+  }
+}

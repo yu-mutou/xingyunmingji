@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/onboarding/onboarding",
+    "pages/home/home",
+    "pages/discover/discover",
+    "pages/profile/profile",
+    "pages/zodiac-detail/zodiac-detail",
+    "pages/chinese-zodiac-detail/chinese-zodiac-detail",
+    "pages/compatibility/compatibility",
+    "pages/history/history",
+    "pages/fortune-detail/fortune-detail",
+    "pages/settings/settings",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "backgroundColor": "#FFFDF9",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFDF9",
+    "navigationBarTitleText": "星运铭记",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#9CA3AF",
+    "selectedColor": "#7B61FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "每日运势",
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "images/tab/discover.png",
+        "selectedIconPath": "images/tab/discover-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "images/tab/profile.png",
+        "selectedIconPath": "images/tab/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,7 @@
+<view class="splash">
+  <view class="splash-logo">✨</view>
+  <view class="splash-name">星运铭记</view>
+  <view class="splash-subtitle">每日好运，星运相伴</view>
+</view>
+
+<privacy-modal visible="{{showPrivacy}}" bind:onAgree="onPrivacyAgree" />

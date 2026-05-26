@@ -1,0 +1,74 @@
+.fortune-header {
+  text-align: center;
+  padding: 32rpx 20rpx 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32rpx;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.lunar-date {
+  font-size: 26rpx;
+  color: var(--text-light);
+  margin-bottom: 2rpx;
+}
+
+.solar-date {
+  font-size: 36rpx;
+  color: var(--text-primary);
+  letter-spacing: 2rpx;
+}
+
+.zodiac-tags {
+  display: flex;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 24rpx;
+  border: 1rpx solid var(--border);
+  color: var(--text-secondary);
+  background: var(--bg);
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-circle {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 3rpx solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.score-number {
+  font-size: 48rpx;
+  letter-spacing: -2rpx;
+}
+
+.level-badge {
+  font-size: 26rpx;
+  color: #fff;
+  padding: 6rpx 36rpx;
+  border-radius: 32rpx;
+  letter-spacing: 6rpx;
+}

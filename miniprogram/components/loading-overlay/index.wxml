@@ -1,0 +1,8 @@
+<view class="loading-overlay" wx:if="{{visible}}">
+  <view class="loading-content">
+    <view class="loading-spinner">
+      <view class="spinner-ring"></view>
+    </view>
+    <view class="loading-text">{{text}}</view>
+  </view>
+</view>

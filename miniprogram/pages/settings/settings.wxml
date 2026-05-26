@@ -1,0 +1,36 @@
+<view class="settings page-container">
+  <view class="about-card card">
+    <view class="app-icon">✨</view>
+    <view class="app-name">星运铭记</view>
+    <view class="app-version">Version 1.0.0</view>
+    <view class="app-desc">
+      星运铭记是一款轻量化每日运势参考小程序，覆盖事业、财运、感情、健康、学业、人际六大维度，致力于为用户提供温馨、治愈的每日运势参考服务。
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="onPrivacyTap">
+      <view class="menu-label">隐私政策</view>
+      <view class="menu-arrow">→</view>
+    </view>
+    <view class="menu-item" bindtap="onTermsTap">
+      <view class="menu-label">用户服务协议</view>
+      <view class="menu-arrow">→</view>
+    </view>
+  </view>
+
+  <view class="footer-text">每日好运，星运相伴 ✨</view>
+
+  <!-- Policy Modal -->
+  <view class="modal-backdrop" wx:if="{{showModal}}" catchtap="onModalClose">
+    <view class="modal-body" catchtap="">
+      <view class="modal-header">
+        <view class="modal-title">{{modalTitle}}</view>
+        <view class="modal-close" bindtap="onModalClose">✕</view>
+      </view>
+      <scroll-view class="modal-scroll" scroll-y="true">
+        <view class="modal-content">{{modalContent}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
